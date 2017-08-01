@@ -1,0 +1,127 @@
+﻿<Window x:Name="Window_Look" x:Class="Roboty_v3.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="303" Width="560" Closing="Window_Closing_1" Focusable="False" Foreground="{x:Null}">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Blue" Offset="1"/>
+            <GradientStop Color="#FF61C1EE" Offset="0.511"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid RenderTransformOrigin="0.492,0.481" Margin="0,0,2,0">
+
+        <Label x:Name="info_Label" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.447,-1.038" Height="26" Width="117"/>
+        <GroupBox x:Name="Status_GB" Header="GroupBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70" Width="512" Margin="5,20,0,0" BorderBrush="#FF0322EA" Panel.ZIndex="2" Content="Status Bar"/>
+        <Image x:Name="Battery_Img" HorizontalAlignment="Left" Height="40" Margin="18,39,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.479,0.487" Source="grafika/bn.png" Stretch="Fill" Panel.ZIndex="1">
+
+        </Image>
+        <Image x:Name="Cennection_Img" HorizontalAlignment="Left" Height="40" Margin="60,39,0,0" VerticalAlignment="Top" Width="40" Source="grafika/disconnected.jpg"/>
+        <Image x:Name="Sensor1_Img" HorizontalAlignment="Left" Height="40" Margin="120,39,0,0" VerticalAlignment="Top" Width="40" Source="grafika/pobrane.bmp"/>
+        <Image x:Name="Sensor2_Img" HorizontalAlignment="Left" Height="40" Margin="200,39,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.442,0.458" Source="grafika/pobrane.bmp"/>
+        <Image x:Name="Sensor3_Img" HorizontalAlignment="Left" Height="40" Margin="280,39,0,0" VerticalAlignment="Top" Width="40" Source="grafika/pobrane.bmp"/>
+        <Image x:Name="Sensor4_Img" HorizontalAlignment="Left" Height="40" Margin="360,39,0,0" VerticalAlignment="Top" Width="40" Source="grafika/pobrane.bmp"/>
+        <Image x:Name="Sensor5_Img" HorizontalAlignment="Left" Height="40" Margin="440,39,0,0" VerticalAlignment="Top" Width="40" Source="grafika/pobrane.bmp"/>
+        <ProgressBar x:Name="Sensor1_PG" HorizontalAlignment="Left" Height="22" Margin="150,48,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.48,0.545" Maximum="2000">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="0.01" Y="-1.99"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Sensor2_PG" HorizontalAlignment="Left" Height="22" Margin="230,48,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.48,0.545" Maximum="2000">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="0.01" Y="-1.99"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Sensor3_PG" HorizontalAlignment="Left" Height="22" Margin="310,48,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.48,0.545" Maximum="2000">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="0.01" Y="-1.99"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Sensor4_PG" HorizontalAlignment="Left" Height="22" Margin="390,48,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5" Maximum="2000">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform X="0.01" Y="-1.99"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <GroupBox x:Name="Settings_GB" Header="GroupBox" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="148" Width="242" Content="Control Bar" BorderBrush="#FFEC0AA4"/>
+        <Image x:Name="Red_D_Img" HorizontalAlignment="Left" Height="40" Margin="55,123,0,0" VerticalAlignment="Top" Width="40" Source="grafika/rd.jpg" MouseLeftButtonDown="Red_D_Img_MouseLeftButtonDown"/>
+        <Image x:Name="Green_D_Img" HorizontalAlignment="Left" Height="40" Margin="139,123,0,0" VerticalAlignment="Top" Width="40" Source="grafika/gd.jpg" MouseLeftButtonDown="Green_D_Img_MouseLeftButtonDown"/>
+        <CheckBox x:Name="Red_D_CheckB" Content="" HorizontalAlignment="Left" Margin="100,123,0,0" VerticalAlignment="Top" Checked="Red_D_CheckB_Checked" Unchecked="Red_D_CheckB_Unchecked"/>
+        <CheckBox x:Name="Green_D_CheckB" Content="" HorizontalAlignment="Left" Margin="184,123,0,0" VerticalAlignment="Top" Unchecked="Green_D_CheckB_Unchecked" Checked="Green_D_CheckB_Checked"/>
+        <Slider x:Name="V_Max_Slider" HorizontalAlignment="Left" Margin="24,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="216" Maximum="127" ValueChanged="V_Max_Slider_ValueChanged">
+            <Slider.Background>
+                <SolidColorBrush Color="#FFF52D0D" Opacity="0.7"/>
+            </Slider.Background>
+        </Slider>
+        <ProgressBar x:Name="Sensor5_PG" HorizontalAlignment="Left" Height="22" Margin="470,48,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5" Maximum="2000">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <Label x:Name="V_Max_Label" Content="vMax" HorizontalAlignment="Left" Margin="24,168,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="V_Max_Value_Label" Content="V_Max_Value" HorizontalAlignment="Left" Margin="200,169,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="Aleft_Img" HorizontalAlignment="Left" Height="54" Margin="295,189,0,0" VerticalAlignment="Top" Width="52" Source="grafika/al.jpg"/>
+        <Image x:Name="Aup_Img" HorizontalAlignment="Left" Height="54" Margin="352,130,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.481" Source="grafika/aup.jpg"/>
+        <Image x:Name="Adown_Img" HorizontalAlignment="Left" Height="54" Margin="352,189,0,0" VerticalAlignment="Top" Width="52" Source="grafika/adown.jpg"/>
+        <Image x:Name="Aright_Img" HorizontalAlignment="Left" Height="54" Margin="409,189,0,0" VerticalAlignment="Top" Width="52" Source="grafika/ar.jpg"/>
+        <ProgressBar x:Name="Left_Motor_PB" HorizontalAlignment="Left" Height="30" Margin="207,160,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Maximum="127">
+            <ProgressBar.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#FFBABABA" Offset="0"/>
+                    <GradientStop Color="#FFC7C7C7"/>
+                    <GradientStop Color="#00BABABA"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Right_Motor_PB" HorizontalAlignment="Left" Height="30" Margin="419,160,-7,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Maximum="127">
+            <ProgressBar.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#FFBABABA" Offset="0"/>
+                    <GradientStop Color="#FFC7C7C7"/>
+                    <GradientStop Color="#00BABABA"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+
+
+    </Grid>
+</Window>
